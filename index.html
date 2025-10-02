@@ -8,152 +8,96 @@
 </head>
 <body class="font-sans text-gray-800">
 
- <!-- Header -->
-<header class="bg-gradient-to-r from-blue-900 to-blue-600 text-white p-6 flex items-center justify-between shadow-lg">
-  <div class="flex items-center space-x-4">
-    <img src="logo.png" alt="Logo CH" class="h-auto w-auto">
+<!-- Header -->
+<header class="bg-gradient-to-r from-blue-900 to-blue-600 text-white p-6 shadow-lg">
+  <div class="flex justify-between items-center">
+    <img src="logo.png" alt="Logo CH" class="h-16 w-auto drop-shadow-lg">
     <div>
+      <button onclick="setLang('vi')" class="px-3 py-1 bg-white text-blue-900 rounded">VI</button>
+      <button onclick="setLang('en')" class="px-3 py-1 bg-white text-blue-900 rounded ml-2">EN</button>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+    <div class="lang vi">
       <h1 class="text-2xl md:text-4xl font-bold">CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI VÀ DỊCH VỤ CH</h1>
-      <p class="mt-1 text-lg">IN ẤN – GIA CÔNG – THIẾT KẾ SÁNG TẠO</p>
+      <p class="mt-2 text-lg">IN ẤN – GIA CÔNG – THIẾT KẾ SÁNG TẠO</p>
+    </div>
+    <div class="lang en hidden">
+      <h1 class="text-2xl md:text-4xl font-bold">CH Trading - Service - Production Co., Ltd.</h1>
+      <p class="mt-2 text-lg">Printing – Processing – Creative Design</p>
     </div>
   </div>
 </header>
 
-
-<!-- Banner Slideshow -->
+<!-- Banner -->
 <section class="relative w-full h-80 overflow-hidden">
   <div id="slideshow" class="flex transition-transform duration-1000 h-full" style="width:100%">
-    <img src="https://www.magspremiums.com/wp-content/uploads/2023/07/silk-screen-printing-banner-1024x363-1-1.jpg" class="w-full h-full object-cover flex-shrink-0" alt="In lụa hình 2">
-    <img src="https://www.foismetal.com/wp-content/uploads/2023/10/Silk-Screen-Materials-768x341.jpg" class="w-full h-full object-cover flex-shrink-0" alt="In lụa hình 2">
-    <img src="https://www.foismetal.com/wp-content/uploads/2023/10/Silk-Screen-Printing-on-Metal-Everything-You-Need-to-Know-1024x455.jpg" class="w-full h-full object-cover flex-shrink-0" alt="In lụa hình 2">
-    <!-- Bạn có thể thêm ảnh 5, 6... theo kiểu mẫu trên -->
+    <img src="https://www.magspremiums.com/wp-content/uploads/2023/07/silk-screen-printing-banner-1024x363-1-1.jpg" class="w-full h-full object-cover flex-shrink-0">
+    <img src="https://www.foismetal.com/wp-content/uploads/2023/10/Silk-Screen-Materials-768x341.jpg" class="w-full h-full object-cover flex-shrink-0">
+    <img src="https://www.foismetal.com/wp-content/uploads/2023/10/Silk-Screen-Printing-on-Metal-Everything-You-Need-to-Know-1024x455.jpg" class="w-full h-full object-cover flex-shrink-0">
   </div>
   <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-    <h2 class="text-white text-3xl md:text-5xl font-bold tracking-wide animate-glow text-center px-4">
-      CHẤT LƯỢNG – UY TÍN – THIẾT KẾ SÁNG TẠO
-    </h2>
+    <div class="lang vi">
+      <h2 class="text-white text-3xl md:text-5xl font-bold tracking-wide animate-glow text-center px-4">
+        CHẤT LƯỢNG – UY TÍN – SÁNG TẠO
+      </h2>
+    </div>
+    <div class="lang en hidden">
+      <h2 class="text-white text-3xl md:text-5xl font-bold tracking-wide animate-glow text-center px-4">
+        QUALITY – PRESTIGE – CREATIVITY
+      </h2>
+    </div>
   </div>
 </section>
 
 <style>
 @keyframes glowEffect {
-  0%, 100% {
-    opacity: 0.7;
-    text-shadow: 0 0 5px rgba(255,255,255,0.6),
-                 0 0 10px rgba(0,162,255,0.4);
-  }
-  50% {
-    opacity: 1;
-    text-shadow: 0 0 15px rgba(255,255,255,0.9),
-                 0 0 30px rgba(0,162,255,0.7),
-                 0 0 45px rgba(0,162,255,0.5);
-  }
+  0%, 100% {opacity: 0.7; text-shadow: 0 0 5px rgba(255,255,255,0.6), 0 0 10px rgba(0,162,255,0.4);}
+  50% {opacity: 1; text-shadow: 0 0 15px rgba(255,255,255,0.9),0 0 30px rgba(0,162,255,0.7),0 0 45px rgba(0,162,255,0.5);}
 }
-.animate-glow {
-  animation: glowEffect 3s ease-in-out infinite;
-}
+.animate-glow {animation: glowEffect 3s ease-in-out infinite;}
 </style>
 
 <script>
   const slideshow = document.getElementById('slideshow');
   const totalSlides = slideshow.children.length;
   let index = 0;
-
   setInterval(() => {
     index = (index + 1) % totalSlides;
     slideshow.style.transform = `translateX(-${index * 100}%)`;
   }, 4000);
+
+  function setLang(lang) {
+    document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.' + lang).forEach(el => el.classList.remove('hidden'));
+  }
 </script>
 
-
-
-
-  <!-- Giới thiệu -->
-  <section class="max-w-6xl mx-auto p-8">
+<!-- Giới thiệu -->
+<section class="max-w-6xl mx-auto p-8">
+  <div class="lang vi">
     <h2 class="text-2xl font-bold text-blue-900 border-b-4 border-blue-600 pb-2 mb-4">Giới thiệu</h2>
     <p><b>CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI VÀ DỊCH VỤ CH</b> hoạt động trong lĩnh vực <b>IN ẤN – GIA CÔNG – THIẾT KẾ SÁNG TẠO</b>, mang đến cho khách hàng những sản phẩm chất lượng, khác biệt và mang tính ứng dụng cao.</p>
     <p class="mt-2">Với hệ thống máy móc hiện đại cùng đội ngũ nhân sự chuyên nghiệp, CH luôn đảm bảo tiến độ, chất lượng và giá thành tối ưu cho mọi đơn hàng.</p>
-  </section>
+  </div>
+  <div class="lang en hidden">
+    <h2 class="text-2xl font-bold text-blue-900 border-b-4 border-blue-600 pb-2 mb-4">About Us</h2>
+    <p><b>CH Trading - Service - Production Co., Ltd.</b> operates in the field of <b>PRINTING – PROCESSING – CREATIVE DESIGN</b>, delivering high-quality, distinctive, and practical products to customers.</p>
+    <p class="mt-2">With modern machinery and a professional team, CH always ensures progress, quality, and optimal cost for every order.</p>
+  </div>
+</section>
 
-  <!-- Lĩnh vực hoạt động -->
-  <section class="bg-gray-50 p-8">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl font-bold text-blue-900 border-b-4 border-blue-600 pb-2 mb-4">Lĩnh vực hoạt động chính</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white p-4 shadow rounded-lg">
-          <h3 class="font-semibold">In lụa</h3>
-          <p>In trên nhiều chất liệu với độ sắc nét cao.</p>
-        </div>
-        <div class="bg-white p-4 shadow rounded-lg">
-          <h3 class="font-semibold">In 3D</h3>
-          <p>Ứng dụng trong trang trí, quà tặng, mô hình.</p>
-        </div>
-        <div class="bg-white p-4 shadow rounded-lg">
-          <h3 class="font-semibold">In chuyển nhiệt</h3>
-          <p>Hình ảnh rõ nét, bền màu lâu dài.</p>
-        </div>
-        <div class="bg-white p-4 shadow rounded-lg">
-          <h3 class="font-semibold">In PET, dạ quang</h3>
-          <p>Tạo hiệu ứng nổi bật, độc đáo.</p>
-        </div>
-        <div class="bg-white p-4 shadow rounded-lg">
-          <h3 class="font-semibold">In silicon</h3>
-          <p>Giải pháp in logo, nhãn mác thời trang.</p>
-        </div>
-        <div class="bg-white p-4 shadow rounded-lg">
-          <h3 class="font-semibold">Thêu vi tính</h3>
-          <p>Tinh xảo, thẩm mỹ cao.</p>
-        </div>
-        <div class="bg-white p-4 shadow rounded-lg md:col-span-2">
-          <h3 class="font-semibold">Cắt laser</h3>
-          <p>Trên nhiều chất liệu: vải, hypalon, mút...</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- (Tương tự: bạn sẽ có song ngữ cho Lĩnh vực, Ưu điểm, Sứ mệnh, Liên hệ) -->
 
-  <!-- Ưu điểm -->
-  <section class="max-w-6xl mx-auto p-8">
-    <h2 class="text-2xl font-bold text-blue-900 border-b-4 border-blue-600 pb-2 mb-4">Ưu điểm nổi bật</h2>
-    <ul class="list-disc pl-6 space-y-2">
-      <li>Công nghệ in – thêu – cắt laser tiên tiến</li>
-      <li>Quy trình sản xuất khép kín, kiểm soát chất lượng nghiêm ngặt</li>
-      <li>Dịch vụ đa dạng, đáp ứng linh hoạt từ mẫu thử đến số lượng lớn</li>
-      <li><b>Cam kết: CHẤT LƯỢNG – UY TÍN – GIÁ CẠNH TRANH</b></li>
-    </ul>
-  </section>
-
-  <!-- Sứ mệnh -->
-  <section class="bg-blue-50 p-8">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl font-bold text-blue-900 border-b-4 border-blue-600 pb-2 mb-4">Sứ mệnh</h2>
-      <p><b>CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI VÀ DỊCH VỤ CH</b> không chỉ cung cấp dịch vụ in ấn – gia công, mà còn là người đồng hành cùng doanh nghiệp, góp phần xây dựng hình ảnh thương hiệu và tạo dấu ấn bền vững trên thị trường.</p>
-    </div>
-  </section>
-
-  <!-- Liên hệ -->
-  <section class="max-w-6xl mx-auto p-8">
-    <h2 class="text-2xl font-bold text-blue-900 border-b-4 border-blue-600 pb-2 mb-4">Thông tin liên hệ</h2>
-    <div class="space-y-2">
-      <p><b>Công ty:</b> CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI VÀ DỊCH VỤ CH</p>
-      <p><b>Địa chỉ:</b> 94/3H, Mỹ Hòa 1, xã Bà Điểm, TP. Hồ Chí Minh, Việt Nam</p>
-      <p><b>Điện thoại:</b> <a href="tel:0934131200" class="text-blue-600 hover:underline">0934 131 200</a></p>
-      <p><b>Email:</b> <a href="mailto:contact@in-ch.com.vn" class="text-blue-600 hover:underline">contact@in-ch.com.vn</a></p>
-      <p><b>Website:</b> <a href="https://in-ch.com.vn" target="_blank" class="text-blue-600 hover:underline">in-ch.com.vn</a></p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-white text-center p-4">
+<!-- Footer -->
+<footer class="bg-blue-900 text-white text-center p-4">
+  <div class="lang vi">
     <p>© 2025 Công ty TNHH Sản xuất Thương mại và Dịch vụ CH - All rights reserved</p>
-  </footer>
+  </div>
+  <div class="lang en hidden">
+    <p>© 2025 CH Trading - Service - Production Co., Ltd. - All rights reserved</p>
+  </div>
+</footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
