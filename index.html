@@ -14,156 +14,88 @@
       100% { opacity: 1; transform: translateY(0); text-shadow: 0 0 15px rgba(0,162,255,0.8); }
     }
     @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
-    .highlight-box { background: linear-gradient(135deg, #2563eb, #1e3a8a); color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.2); animation: fadeUp 1s ease forwards; }
-    .highlight-box p { animation: fadeGlow 3s ease-in-out infinite alternate; }
-    .card-box { background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-    .card-box:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-    .card-box h3 { color: #1e3a8a; display: flex; align-items: center; gap: 0.5rem; }
-    .card-box h3 i { font-size: 1.5rem; color: #2563eb; }
-    .glow-text { font-weight: bold; font-size: 1.5rem; color: white; white-space: nowrap; width: 0; overflow: hidden; animation: typing 4s steps(40, end) forwards; }
-    @keyframes typing { from { width: 0; } to { width: 100%; } }
-
-    /* Cam kết animation */
-    .fade-card { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    .card-box { background: white; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .card-box:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+    .fade-card { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
     .fade-card.show { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body class="font-sans text-gray-800">
 
 <!-- Nút chọn ngôn ngữ -->
-<div class="fixed top-4 right-6 flex gap-2 z-50">
-  <button id="btn-vi" class="px-3 py-1 rounded-full border-2 border-blue-600 text-sm font-bold">VN</button>
-  <button id="btn-en" class="px-3 py-1 rounded-full border-2 border-transparent text-sm font-bold">EN</button>
+<div class="fixed top-2 right-3 flex gap-2 z-50">
+  <button id="btn-vi" class="px-2 py-1 rounded-full border-2 border-blue-600 text-xs sm:text-sm font-bold">VN</button>
+  <button id="btn-en" class="px-2 py-1 rounded-full border-2 border-transparent text-xs sm:text-sm font-bold">EN</button>
 </div>
 
-<!-- Hero Section -->
-<section class="flex flex-col items-center justify-center h-screen text-center bg-gradient-to-r from-blue-900 to-blue-600 text-white px-6 overflow-hidden">
-  <h1 class="text-[100px] font-extrabold leading-none opacity-0 scale-90 animate-[fadeInScale_1.2s_ease_forwards]">
-    <span class="block text-[120px] text-red-600">CH</span>
-    <span class="text-black">DREAM</span>
+<!-- Hero -->
+<section class="flex flex-col items-center justify-center min-h-screen text-center bg-gradient-to-r from-blue-900 to-blue-600 text-white px-4 overflow-hidden">
+  <h1 class="font-extrabold leading-none opacity-0 scale-90 animate-[fadeInScale_1.2s_ease_forwards]">
+    <span class="block text-red-600 text-5xl sm:text-7xl md:text-[120px]">CH</span>
+    <span class="text-black text-4xl sm:text-6xl md:text-[100px]">DREAM</span>
   </h1>
-  <p class="mt-8 text-2xl font-semibold tracking-wide opacity-0 translate-y-6 animate-[fadeGlow_1.5s_ease_forwards_1.2s] lang-vi">
-    CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI VÀ DỊCH VỤ CH
+  <p class="mt-6 text-lg sm:text-2xl font-semibold tracking-wide opacity-0 translate-y-6 animate-[fadeGlow_1.5s_ease_forwards_1.2s]">
+    <span class="lang-vi">CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI VÀ DỊCH VỤ CH</span>
+    <span class="lang-en hidden">CH Trading – Production and Service Co., Ltd.</span>
   </p>
-  <p class="mt-8 text-2xl font-semibold tracking-wide opacity-0 translate-y-6 animate-[fadeGlow_1.5s_ease_forwards_1.2s] lang-en hidden">
-    CH Trading – Production and Service Co., Ltd.
+  <p class="mt-2 text-sm sm:text-lg font-bold">
+    <span class="lang-vi">IN ẤN – GIA CÔNG – THIẾT KẾ SÁNG TẠO</span>
+    <span class="lang-en hidden">PRINTING – PROCESSING – CREATIVE DESIGN</span>
   </p>
-  <p class="mt-2 glow-text lang-vi">IN ẤN – GIA CÔNG – THIẾT KẾ SÁNG TẠO</p>
-  <p class="mt-2 glow-text lang-en hidden">Printing – Processing – Creative Design</p>
 </section>
 
 <!-- Giới thiệu -->
-<section class="py-20 px-6 bg-white text-center">
-  <h2 class="text-4xl font-bold text-blue-900 mb-10"><i class='bx bxs-info-circle'></i> <span class="lang-vi">Giới thiệu</span><span class="lang-en hidden">Introduction</span></h2>
+<section class="py-12 sm:py-20 px-4 sm:px-6 bg-white text-center">
+  <h2 class="text-2xl sm:text-4xl font-bold text-blue-900 mb-8 sm:mb-10"><i class='bx bxs-info-circle'></i> <span class="lang-vi">Giới thiệu</span><span class="lang-en hidden">About Us</span></h2>
   <div class="card-box max-w-4xl mx-auto">
-    <p class="lang-vi text-2xl font-bold text-gray-800 mb-2">CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI VÀ DỊCH VỤ CH</p>
-    <p class="lang-en hidden text-2xl font-bold text-gray-800 mb-2">CH Trading – Production and Service Co., Ltd.</p>
-    <p class="lang-vi text-xl font-semibold text-blue-700 mb-4">IN ẤN – GIA CÔNG – THIẾT KẾ SÁNG TẠO</p>
-    <p class="lang-en hidden text-xl font-semibold text-blue-700 mb-4">Printing – Processing – Creative Design</p>
-    <p class="lang-vi text-lg text-gray-600">Mang đến cho khách hàng những sản phẩm chất lượng, khác biệt và mang tính ứng dụng cao.</p>
-    <p class="lang-en hidden text-lg text-gray-600">Delivering high-quality, distinctive, and practical solutions tailored to your needs.</p>
+    <p class="text-lg sm:text-2xl font-bold text-gray-800 mb-2 lang-vi">CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI VÀ DỊCH VỤ CH</p>
+    <p class="text-lg sm:text-xl font-semibold text-blue-700 mb-4 lang-vi">IN ẤN – GIA CÔNG – THIẾT KẾ SÁNG TẠO</p>
+    <p class="text-base sm:text-lg text-gray-600 lang-vi">Mang đến cho khách hàng những sản phẩm chất lượng, khác biệt và mang tính ứng dụng cao...</p>
+
+    <p class="text-lg sm:text-2xl font-bold text-gray-800 mb-2 lang-en hidden">CH Trading – Production and Service Co., Ltd.</p>
+    <p class="text-lg sm:text-xl font-semibold text-blue-700 mb-4 lang-en hidden">PRINTING – PROCESSING – CREATIVE DESIGN</p>
+    <p class="text-base sm:text-lg text-gray-600 lang-en hidden">Delivering high-quality, distinctive, and practical products to our clients...</p>
   </div>
 </section>
 
-<!-- Lĩnh vực hoạt động -->
-<section class="py-20 px-6 bg-white">
-  <h2 class="text-4xl font-bold text-center text-blue-900 mb-12"><i class='bx bxs-briefcase-alt-2'></i> <span class="lang-vi">Lĩnh vực hoạt động</span><span class="lang-en hidden">Our Services</span></h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    <div class="bg-gray-50 p-8 shadow-lg rounded-xl hover:scale-105 transition">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-4"><i class='bx bxs-printer'></i> <span class="lang-vi">In ấn</span><span class="lang-en hidden">Printing</span></h3>
-      <p class="lang-vi text-gray-600">Cung cấp dịch vụ in ấn chất lượng cao cho các sản phẩm quảng cáo, bao bì và ấn phẩm thương mại.</p>
-      <p class="lang-en hidden text-gray-600">High-quality printing for marketing materials, packaging, and commercial publications.</p>
+<!-- Lĩnh vực -->
+<section class="py-12 sm:py-20 px-4 sm:px-6 bg-gray-50">
+  <h2 class="text-2xl sm:text-4xl font-bold text-center text-blue-900 mb-8 sm:mb-12"><i class='bx bxs-briefcase-alt-2'></i> <span class="lang-vi">Lĩnh vực hoạt động</span><span class="lang-en hidden">Our Services</span></h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+    <div class="bg-white p-6 sm:p-8 shadow-lg rounded-xl hover:scale-105 transition">
+      <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3"><i class='bx bxs-printer'></i> <span class="lang-vi">In ấn</span><span class="lang-en hidden">Printing</span></h3>
+      <p class="text-gray-600 text-sm sm:text-base lang-vi">Cung cấp dịch vụ in ấn chất lượng cao...</p>
+      <p class="text-gray-600 text-sm sm:text-base lang-en hidden">High-quality printing services for advertising...</p>
     </div>
-    <div class="bg-gray-50 p-8 shadow-lg rounded-xl hover:scale-105 transition">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-4"><i class='bx bxs-package'></i> <span class="lang-vi">Gia công</span><span class="lang-en hidden">Processing</span></h3>
-      <p class="lang-vi text-gray-600">Gia công balo, túi xách, nón và nhiều sản phẩm khác với kỹ thuật tiên tiến và tay nghề cao.</p>
-      <p class="lang-en hidden text-gray-600">Manufacturing backpacks, bags, caps, and more with advanced techniques and skilled craftsmanship.</p>
+    <div class="bg-white p-6 sm:p-8 shadow-lg rounded-xl hover:scale-105 transition">
+      <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3"><i class='bx bxs-package'></i> <span class="lang-vi">Gia công</span><span class="lang-en hidden">Processing</span></h3>
+      <p class="text-gray-600 text-sm sm:text-base lang-vi">Gia công balo, túi xách, nón...</p>
+      <p class="text-gray-600 text-sm sm:text-base lang-en hidden">Processing backpacks, bags, caps...</p>
     </div>
-    <div class="bg-gray-50 p-8 shadow-lg rounded-xl hover:scale-105 transition">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-4"><i class='bx bxs-paint'></i> <span class="lang-vi">Thiết kế sáng tạo</span><span class="lang-en hidden">Creative Design</span></h3>
-      <p class="lang-vi text-gray-600">Đội ngũ thiết kế chuyên nghiệp, sáng tạo, mang đến giải pháp hình ảnh độc đáo và ấn tượng.</p>
-      <p class="lang-en hidden text-gray-600">Creative and professional design team delivering unique and impactful visual solutions.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Ưu điểm -->
-<section class="py-20 px-6 bg-gray-50 text-center">
-  <h2 class="text-4xl font-bold text-blue-900 mb-10"><i class='bx bxs-star'></i> <span class="lang-vi">Ưu điểm nổi bật</span><span class="lang-en hidden">Key Advantages</span></h2>
-  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-    <div class="card-box">
-      <h3 class="text-2xl font-semibold mb-3"><i class='bx bxs-cog'></i> <span class="lang-vi">Công nghệ tiên tiến</span><span class="lang-en hidden">Advanced Technology</span></h3>
-      <p class="lang-vi text-gray-600">In – Thêu – Cắt Laser hiện đại, sắc nét, chuẩn xác trên từng chi tiết.</p>
-      <p class="lang-en hidden text-gray-600">Modern Printing – Embroidery – Laser Cutting with precision and clarity in every detail.</p>
-    </div>
-    <div class="card-box">
-      <h3 class="text-2xl font-semibold mb-3"><i class='bx bxs-check-shield'></i> <span class="lang-vi">Quy trình chất lượng</span><span class="lang-en hidden">Quality Process</span></h3>
-      <p class="lang-vi text-gray-600">Sản xuất khép kín, kiểm soát chất lượng nghiêm ngặt ở mọi công đoạn.</p>
-      <p class="lang-en hidden text-gray-600">Closed-loop production with strict quality control at every stage.</p>
-    </div>
-    <div class="card-box">
-      <h3 class="text-2xl font-semibold mb-3"><i class='bx bxs-layer'></i> <span class="lang-vi">Dịch vụ đa dạng</span><span class="lang-en hidden">Diverse Services</span></h3>
-      <p class="lang-vi text-gray-600">Linh hoạt đáp ứng từ mẫu thử nhỏ đến đơn hàng lớn.</p>
-      <p class="lang-en hidden text-gray-600">Flexible services from small samples to large-scale orders.</p>
-    </div>
-    <div class="card-box">
-      <h3 class="text-2xl font-semibold mb-3"><i class='bx bxs-truck'></i> <span class="lang-vi">Chất lượng & tiến độ</span><span class="lang-en hidden">Quality & Timeliness</span></h3>
-      <p class="lang-vi text-gray-600">Kỹ thuật cao, giao hàng nhanh chóng, sản phẩm bền đẹp.</p>
-      <p class="lang-en hidden text-gray-600">High precision, fast delivery, and long-lasting quality products.</p>
+    <div class="bg-white p-6 sm:p-8 shadow-lg rounded-xl hover:scale-105 transition">
+      <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3"><i class='bx bxs-paint'></i> <span class="lang-vi">Thiết kế sáng tạo</span><span class="lang-en hidden">Creative Design</span></h3>
+      <p class="text-gray-600 text-sm sm:text-base lang-vi">Đội ngũ thiết kế chuyên nghiệp...</p>
+      <p class="text-gray-600 text-sm sm:text-base lang-en hidden">A professional and creative design team...</p>
     </div>
   </div>
 </section>
 
 <!-- Cam kết -->
-<section class="py-20 px-6 bg-white text-center">
-  <h2 class="text-4xl font-bold text-blue-900 mb-10"><i class='bx bxs-hand'></i> <span class="lang-vi">Cam kết</span><span class="lang-en hidden">Our Commitments</span></h2>
-  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-    <div class="card-box fade-card text-left">
-      <p class="lang-vi"><i class='bx bx-check-circle text-green-600'></i> Kỹ thuật in hiện đại, hình ảnh sắc nét, màu sắc chuẩn xác.</p>
-      <p class="lang-en hidden"><i class='bx bx-check-circle text-green-600'></i> Cutting-edge printing techniques delivering sharp images and accurate colors.</p>
+<section class="py-12 sm:py-20 px-4 sm:px-6 bg-white text-center">
+  <h2 class="text-2xl sm:text-4xl font-bold text-blue-900 mb-8 sm:mb-10"><i class='bx bxs-hand'></i> <span class="lang-vi">Cam kết</span><span class="lang-en hidden">Our Commitment</span></h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+    <div class="fade-card card-box text-left">
+      <p><i class='bx bx-check-circle text-green-600'></i> <span class="lang-vi">Kỹ thuật in hiện đại...</span><span class="lang-en hidden">Modern printing technology...</span></p>
     </div>
-    <div class="card-box fade-card text-left">
-      <p class="lang-vi"><i class='bx bx-check-circle text-green-600'></i> Gia công bởi đội ngũ thợ lành nghề, tỉ mỉ trong từng chi tiết.</p>
-      <p class="lang-en hidden"><i class='bx bx-check-circle text-green-600'></i> Skilled craftsmen ensuring meticulous finishing in every detail.</p>
+    <div class="fade-card card-box text-left">
+      <p><i class='bx bx-check-circle text-green-600'></i> <span class="lang-vi">Gia công bởi đội ngũ...</span><span class="lang-en hidden">Processed by skilled craftsmen...</span></p>
     </div>
-    <div class="card-box fade-card text-left">
-      <p class="lang-vi"><i class='bx bx-check-circle text-green-600'></i> Đảm bảo chất lượng bền đẹp, đúng yêu cầu thiết kế.</p>
-      <p class="lang-en hidden"><i class='bx bx-check-circle text-green-600'></i> Guaranteed durability and adherence to design specifications.</p>
+    <div class="fade-card card-box text-left">
+      <p><i class='bx bx-check-circle text-green-600'></i> <span class="lang-vi">Đảm bảo chất lượng...</span><span class="lang-en hidden">Ensuring durability and quality...</span></p>
     </div>
-    <div class="card-box fade-card text-left">
-      <p class="lang-vi"><i class='bx bx-check-circle text-green-600'></i> Tiến độ đảm bảo, giúp khách hàng yên tâm trong mọi kế hoạch.</p>
-      <p class="lang-en hidden"><i class='bx bx-check-circle text-green-600'></i> Reliable timelines, supporting customers in all business plans and events.</p>
+    <div class="fade-card card-box text-left">
+      <p><i class='bx bx-check-circle text-green-600'></i> <span class="lang-vi">Tiến độ đảm bảo...</span><span class="lang-en hidden">On-time delivery guaranteed...</span></p>
     </div>
-    <div class="card-box fade-card text-left md:col-span-2">
-      <p class="lang-vi"><i class='bx bx-check-circle text-green-600'></i> Chất lượng cao, kỹ thuật tiên tiến và sự chuyên nghiệp chính là giá trị cốt lõi của chúng tôi.</p>
-      <p class="lang-en hidden"><i class='bx bx-check-circle text-green-600'></i> Excellence, innovation, and professionalism are our core values.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Sứ mệnh -->
-<section class="py-20 px-6 bg-blue-50 text-center">
-  <h2 class="text-4xl font-bold text-blue-900 mb-6"><i class='bx bxs-rocket'></i> <span class="lang-vi">Sứ mệnh</span><span class="lang-en hidden">Our Mission</span></h2>
-  <div class="highlight-box max-w-4xl mx-auto">
-    <p class="lang-vi text-2xl leading-relaxed font-bold">
-      CH không chỉ cung cấp dịch vụ in ấn – gia công, mà còn đồng hành cùng doanh nghiệp xây dựng thương hiệu và tạo dấu ấn bền vững trên thị trường.
-    </p>
-    <p class="lang-en hidden text-2xl leading-relaxed font-bold">
-      CH is more than a printing and processing provider; we are a trusted partner in building brands and creating lasting impact in the marketplace.
-    </p>
-  </div>
-</section>
-
-<!-- Liên hệ -->
-<section class="py-20 px-6 bg-white text-center">
-  <h2 class="text-4xl font-bold text-blue-900 mb-10"><i class='bx bxs-phone'></i> <span class="lang-vi">Liên hệ</span><span class="lang-en hidden">Contact Us</span></h2>
-  <div class="card-box max-w-2xl mx-auto">
-    <p class="lang-vi">Email: contact@in-ch.com.vn</p>
-    <p class="lang-en hidden">Email: contact@in-ch.com.vn</p>
-    <p class="lang-vi">Điện thoại: 0934 131 200</p>
-    <p class="lang-en hidden">Phone: +84 934 131 200</p>
-    <p class="lang-vi">Website: in-ch.com.vn</p>
-    <p class="lang-en hidden">Website: in-ch.com.vn</p>
   </div>
 </section>
 
@@ -179,25 +111,21 @@
   const btnEn = document.getElementById("btn-en");
 
   function switchLang(lang) {
-    document.querySelectorAll(".lang-vi").forEach(el => {
-      el.style.display = (lang === "vi") ? "block" : "none";
-    });
-    document.querySelectorAll(".lang-en").forEach(el => {
-      el.style.display = (lang === "en") ? "block" : "none";
-    });
+    document.querySelectorAll(".lang-vi").forEach(el => el.style.display = (lang === "vi") ? "inline" : "none");
+    document.querySelectorAll(".lang-en").forEach(el => el.style.display = (lang === "en") ? "inline" : "none");
     btnVi.className = (lang === "vi") 
-      ? "px-3 py-1 rounded-full border-2 border-blue-600 text-sm font-bold" 
-      : "px-3 py-1 rounded-full border-2 border-transparent text-sm font-bold";
+      ? "px-2 py-1 rounded-full border-2 border-blue-600 text-xs sm:text-sm font-bold" 
+      : "px-2 py-1 rounded-full border-2 border-transparent text-xs sm:text-sm font-bold";
     btnEn.className = (lang === "en") 
-      ? "px-3 py-1 rounded-full border-2 border-blue-600 text-sm font-bold" 
-      : "px-3 py-1 rounded-full border-2 border-transparent text-sm font-bold";
+      ? "px-2 py-1 rounded-full border-2 border-blue-600 text-xs sm:text-sm font-bold" 
+      : "px-2 py-1 rounded-full border-2 border-transparent text-xs sm:text-sm font-bold";
   }
 
   btnVi.addEventListener("click", () => switchLang("vi"));
   btnEn.addEventListener("click", () => switchLang("en"));
   switchLang("vi");
 
-  // Animation fade card khi scroll
+  // Animation cam kết khi scroll
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if(entry.isIntersecting){ entry.target.classList.add("show"); }
